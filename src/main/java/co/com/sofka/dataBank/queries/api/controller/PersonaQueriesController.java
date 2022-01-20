@@ -2,13 +2,14 @@ package co.com.sofka.dataBank.queries.api.controller;
 
 import co.com.sofka.dataBank.queries.api.entity.Persona;
 import co.com.sofka.dataBank.queries.api.query.BuscarPersonaByIdQuery;
+import co.com.sofka.dataBank.queries.api.query.ObtenerPersonasQuery;
+import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/personas")
@@ -20,8 +21,19 @@ public class PersonaQueriesController {
         this.queryGateway = queryGateway;
     }
 
-    @GetMapping("get-persona")
-    public ResponseEntity<Persona> getPersona(@RequestParam String id){
+    @GetMapping
+    public List<Persona> getPersonas(){
+
+        ObtenerPersonasQuery obtenerPersonasQuery = new ObtenerPersonasQuery();
+
+        return queryGateway.query(obtenerPersonasQuery, ResponseTypes
+                        .multipleInstancesOf(Persona.class))
+                .join();
+
+    }
+
+    @GetMapping("get-persona/{id}")
+    public ResponseEntity<Persona> getPersona(@PathVariable String id){
         Persona persona = queryGateway.query(
                 new BuscarPersonaByIdQuery(id),
                 Persona.class

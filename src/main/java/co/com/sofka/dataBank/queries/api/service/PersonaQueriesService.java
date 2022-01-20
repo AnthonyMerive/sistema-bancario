@@ -6,11 +6,14 @@ import co.com.sofka.dataBank.events.PersonaCreadaEvent;
 import co.com.sofka.dataBank.events.RetiradoEvent;
 import co.com.sofka.dataBank.queries.api.entity.Persona;
 import co.com.sofka.dataBank.queries.api.query.BuscarPersonaByIdQuery;
+import co.com.sofka.dataBank.queries.api.query.ObtenerPersonasQuery;
 import co.com.sofka.dataBank.queries.api.repository.PersonaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -89,6 +92,13 @@ public class PersonaQueriesService {
     }
 
     @QueryHandler
+    public List<Persona> handle(ObtenerPersonasQuery query){
+        log.info("Manejando 'ObtenerPersonasQuery'...");
+
+        return repository.findAll();
+    }
+
+    @QueryHandler
     public Persona handle(BuscarPersonaByIdQuery query){
         log.info("Manejando 'BuscarPersonaByIdQuery'...");
 
@@ -96,4 +106,5 @@ public class PersonaQueriesService {
                 .getPersonaId())
                 .orElse(null);
     }
+
 }
