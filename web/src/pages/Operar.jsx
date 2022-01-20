@@ -47,16 +47,12 @@ export const Operar = () => {
         <div className="container my-5">
 
             <h1 className="d-flex justify-content-center mt-1"> Opere su <strong className="ms-3 text-info">CUENTA</strong> </h1>
-            <div className='d-flex justify-content-center mt-3'>
-                <button onClick={handleDepositar} className="btn btn-info shadow-sm text-light"><strong>Depositar</strong></button>
-                <button onClick={handleRetirar} className="btn btn-outline-info shadow-sm ms-1"><strong>Retirar</strong></button>
-            </div>
 
-            {(depositar || retirar) &&
+            {(depositar || retirar) ?
                 <div className='d-flex justify-content-center my-4'>
                     <form className="w-20 mx-auto border p-4" onSubmit={depositar ? handleDeposito : handleRetiro}>
 
-                        <h5 className="d-flex justify-content-center mb-4"><strong>{depositar? 'DEPOSITAR': 'RETIRAR'}</strong></h5>
+                        <h5 className="d-flex justify-content-center mb-4"><strong>{depositar ? 'DEPOSITAR' : 'RETIRAR'}</strong></h5>
 
                         <div className="mb-3">
                             <label htmlFor="id" className="form-label">Identificador de la cuenta:</label>
@@ -86,6 +82,13 @@ export const Operar = () => {
                             <button onClick={handleCancelar} className="btn btn-sm btn-secondary ms-1">Cancelar</button>
                         </div>
                     </form>
+                </div>
+
+                :
+
+                <div className='d-flex justify-content-center mt-3'>
+                    <button onClick={handleDepositar} className="btn btn-info shadow-sm text-light"><strong>Depositar</strong></button>
+                    <button onClick={handleRetirar} className="btn btn-outline-info shadow-sm ms-1"><strong>Retirar</strong></button>
                 </div>
 
             }
