@@ -45,11 +45,11 @@ public class PersonaAggregate {
 
         this.personaId = personaCreadaEvent.getId();
         this.balance = personaCreadaEvent.getBalance();
-        this.estado = "Creado..!";
+        this.estado = "CREADO";
 
         AggregateLifecycle.apply((new PersonaActivadaEvent(
                 this.personaId,
-                "Activado..!"
+                "ACTIVADO"
         )));
     }
 

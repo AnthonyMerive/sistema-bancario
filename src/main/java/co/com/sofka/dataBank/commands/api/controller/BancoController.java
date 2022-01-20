@@ -38,7 +38,7 @@ public class BancoController {
     @PutMapping(value = "/depositar")
     public ResponseEntity<String> depositar(@RequestBody DepositarDto request){
         try {
-
+            service.depositar(request);
             return  new ResponseEntity<>("Deposito Realizado", HttpStatus.OK);
         } catch (Exception e){
 
@@ -49,7 +49,7 @@ public class BancoController {
     @PutMapping(value = "/retirar")
     public ResponseEntity<String> retirar(@RequestBody RetirarDto request){
         try {
-
+            service.retirar(request);
             return  new ResponseEntity<>("Retiro Realizado", HttpStatus.OK);
         } catch (Exception e){
 
