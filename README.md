@@ -13,7 +13,8 @@ admin a traves de la autenticacion de firebase.
   Tiene acceso al command de crearCuenta y a las queries de consultar saldo y a los command de depositar y retirar.
 
 - **El Admin:**
-  Tiene acceso a la querie de getCuentas, podra observar los datos de todas las cuentas y sus estados.
+  Tiene acceso a la querie de getCuentas, podra observar los datos de todas las cuentas y sus estados, para acceder a admin las credenciales
+  son: || correo: "admin@admin.com" || contraseña: "admin1234" || sin comillas.
   
 ## Pasos para despliegue local:
  
