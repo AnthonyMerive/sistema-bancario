@@ -4,7 +4,7 @@
 
 ## Descripcion:
 
-Se realizo una aplicacion centrada la implementacion del patron de diseño CQRS, para esto se tomo en cuenta el caso hipotetico
+Se realizo una aplicacion web centrada en la implementacion del patron de diseño CQRS, para esto se tomo en cuenta el caso hipotetico
 de tener un dominio de Banco, este tendria un sub-dominio Core que seria contabilidad, en este se centro el
 desarrollo del back-end, llevando el contro de cuentas, depositos y retiros, tambien se creo un perfil de usuario 
 admin a traves de la autenticacion de firebase.
@@ -26,8 +26,10 @@ admin a traves de la autenticacion de firebase.
   
   **Frontend:**
   
-  - Debes tener yarn ya que el proyecto se realizo con vite y se instalo el proyecto en  base a yarn.
-  - Abre la consola en la carpeta web del proyecto, alli ejecuta el comando "yarn dev".
+  - Debes tener yarn ya que el proyecto se realizo con vite y se instalo el proyecto en base a yarn por tanto los scripts de 
+    npm (npm install, npm run, npm build) no estaran disponibles.
+  - Abre la consola en la carpeta "web" del proyecto y ejecuta "yarn install".
+  - Inicia el servidor de desarrollo ejecutando el comando "yarn dev".
   - El proyecto se desplegara en el puerto 3000, bajo la direccion: http://localhost:3000
 
 ## Perspectiva Back-end
