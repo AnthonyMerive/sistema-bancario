@@ -1,9 +1,17 @@
 import React, { Fragment } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { logout } from '../actions/authAction.js'
 import { Offcanvas } from './Offcanvas.jsx'
 
 export const Navbar = ({ auth }) => {
 
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout());
+    }
+    
     return (
         <nav className="navbar navbar-expand-sm navbar-light bg-dark ">
             <div className="container-fluid">
@@ -58,11 +66,15 @@ export const Navbar = ({ auth }) => {
                                 <li className="nav-item">
                                     <Link
                                         style={{ textDecoration: 'none' }}
-                                        to="new">
-                                        <span className="nav-link text-danger" >Cuentas Registradas</span>
+                                        to="cuentas">
+                                        <span className="nav-link text-secondary" >| Cuentas</span>
                                     </Link>
                                 </li>
+                                <li className="nav-item" style={{ cursor: 'pointer' }}>
+                                        <span onClick={handleLogout} className="nav-link text-secondary" >| Salir</span>
+                                </li>
                             </Fragment>
+                            
                         }
 
                         <Offcanvas />

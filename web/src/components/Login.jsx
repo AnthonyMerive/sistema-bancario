@@ -1,10 +1,10 @@
-//import { useDispatch } from 'react-redux';
-//import { loginEmailPassword } from '../actions/authAction';
+import { useDispatch } from 'react-redux';
+import { loginEmailPassword } from '../actions/authAction';
 import { useForm } from '../hooks/useForm';
 
 export default function Login() {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const [values, handleInputChange, reset] = useForm({
         email: '',
@@ -14,8 +14,8 @@ export default function Login() {
     const { email, password } = values;
 
     const handleLogin = (e) => {
-        // e.preventDefault();
-        // dispatch(loginEmailPassword(email, password))
+        e.preventDefault();
+        dispatch(loginEmailPassword(email, password))
         reset();
     }
 

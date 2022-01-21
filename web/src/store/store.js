@@ -2,10 +2,12 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { guardarSessionStorage, obtenerSessionStorage } from "../hooks/sessionStorage";
 import thunk from 'redux-thunk';
 import { bancoReducer } from "../reducers/bancoReducer";
+import { authReducer } from "../reducers/authReducer";
 
 const reducers = combineReducers({
 
     banco: bancoReducer,
+    auth: authReducer
 
 })
 
@@ -24,7 +26,7 @@ export const store = createStore(
 
 store.subscribe(() => {
     guardarSessionStorage({
-        login: store.getState().login
+        auth: store.getState().auth
     })
 
 })
