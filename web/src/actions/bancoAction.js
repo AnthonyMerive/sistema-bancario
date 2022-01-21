@@ -109,3 +109,16 @@ export function fetchCuenta(id) {
         }
     }
 }
+
+export function fetchCuentas() {
+    return async dispatch => {
+        dispatch(loading())
+        try {
+            const response = await fetch(`${URL_QUERIES}`)
+            const data = await response.json()
+            dispatch(success({ productos: data }))
+        } catch (error) {
+            dispatch(failure())
+        }
+    }
+}

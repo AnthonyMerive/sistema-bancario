@@ -32,7 +32,6 @@ export const Inicio = () => {
         reset();
     }
 
-
     return (
         <div className="container my-5">
 

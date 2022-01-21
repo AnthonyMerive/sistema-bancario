@@ -38,7 +38,7 @@ export const logout = () => {
         signOut(authentication)
             .then(user => {
                 dispatch(logoutSincrono())
-                // dispatch(success({ personas: null }))
+                dispatch(success({ productos: null }))
                 sessionStorage.clear();
             })
             .catch(error => {

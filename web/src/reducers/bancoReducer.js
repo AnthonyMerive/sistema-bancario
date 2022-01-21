@@ -6,7 +6,8 @@ export const initialState = {
   productoCreadoId: null,
   depositado: null,
   retirado: null,
-  productoConsultado: null
+  productoConsultado: null,
+  productos: null
 }
 
 export function bancoReducer(state = initialState, action) {
