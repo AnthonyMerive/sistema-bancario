@@ -25,13 +25,18 @@ admin a traves de la autenticacion de firebase.
   - El proyecto se desplegara en el puerto 8081, bajo la direccion: http://localhost:8081/swagger-ui.html
   - Puedes acceder a la base de datos H2 a traves de la direccion: http://localhost:8081/h2-console
   
-  **Frontend:**
+  **Frontend para desarrollo:**
   
   - Debes tener yarn ya que el proyecto se realizo con vite y se instalo el proyecto en base a yarn por tanto los scripts de 
     npm (npm install, npm run, npm build) no estaran disponibles.
   - Abre la consola en la carpeta "web" del proyecto y ejecuta "yarn install".
   - Inicia el servidor de desarrollo ejecutando el comando "yarn dev".
   - El proyecto se desplegara en el puerto 3000, bajo la direccion: http://localhost:3000
+
+  **Despliegue local de Back y Front:**
+  
+  - el Frontend ya tiene su build por tal motivo para desplegar ambos bastara con entrar al proyecto y hacer run al proyecto spring-boot tal como
+    se especifica anteriormente, para entrar a nuestro deploy de frontend solo debemos dirigirnos a: http://localhost:8081/index.html
 
 ## Perspectiva Back-end
 
