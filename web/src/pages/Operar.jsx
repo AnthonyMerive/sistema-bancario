@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { depositar, retirar } from '../actions/bancoAction';
+import { Modal } from '../components/Modal';
 import { useForm } from '../hooks/useForm';
 
 export const Operar = () => {
 
-    const [depositar, setDepositar] = useState(false);
-    const [retirar, setRetirar] = useState(false);
+    const [deposito, setDeposito] = useState(false);
+    const [retiro, setRetiro] = useState(false);
+    const depositado = useSelector(store => store.banco.depositado);
+    const retirado = useSelector(store => store.banco.retirado)
+    const dispatch = useDispatch();
 
     const [values, handleInputChange, reset] = useForm({
         id: '',
@@ -14,45 +20,43 @@ export const Operar = () => {
     const { id, monto } = values;
 
     const handleDepositar = () => {
-        setDepositar(true);
-        setRetirar(false);
+        setDeposito(true);
+        setRetiro(false);
     }
 
     const handleRetirar = () => {
-        setRetirar(true);
-        setDepositar(false);
+        setRetiro(true);
+        setDeposito(false);
     }
 
     const handleDeposito = (e) => {
         e.preventDefault();
-        alert("deposito");
+        dispatch(depositar(id, monto));
         reset();
     }
 
     const handleRetiro = (e) => {
         e.preventDefault();
-        alert("retiro");
+        dispatch(retirar(id, monto));
         reset();
     }
 
     const handleCancelar = () => {
-        setRetirar(false);
-        setDepositar(false);
+        setRetiro(false);
+        setDeposito(false);
         reset();
     }
-
-
 
     return (
         <div className="container my-5">
 
             <h1 className="d-flex justify-content-center mt-1"> Opere su <strong className="ms-3 text-info">CUENTA</strong> </h1>
 
-            {(depositar || retirar) ?
+            {(deposito || retiro) ?
                 <div className='d-flex justify-content-center my-4'>
-                    <form className="w-20 mx-auto border p-4" onSubmit={depositar ? handleDeposito : handleRetiro}>
+                    <form className="w-20 mx-auto border p-4" onSubmit={deposito ? handleDeposito : handleRetiro}>
 
-                        <h5 className="d-flex justify-content-center mb-4"><strong>{depositar ? 'DEPOSITAR' : 'RETIRAR'}</strong></h5>
+                        <h5 className="d-flex justify-content-center mb-4"><strong>{deposito ? 'DEPOSITAR' : 'RETIRAR'}</strong></h5>
 
                         <div className="mb-3">
                             <label htmlFor="id" className="form-label">Identificador de la cuenta:</label>
@@ -78,7 +82,14 @@ export const Operar = () => {
                         </div>
 
                         <div className="d-flex justify-content-center mt-4">
-                            <button type="submit" className="btn btn-sm shadow-sm btn-outline-info">{depositar ? 'DEPOSITAR' : 'RETIRAR'}</button>
+                            <button
+                                type="submit"
+                                className="btn btn-sm shadow-sm btn-outline-info"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                            >
+                                {deposito ? 'DEPOSITAR' : 'RETIRAR'}
+                            </button>
                             <button onClick={handleCancelar} className="btn btn-sm btn-secondary ms-1">Cancelar</button>
                         </div>
                     </form>
@@ -87,11 +98,22 @@ export const Operar = () => {
                 :
 
                 <div className='d-flex justify-content-center mt-3'>
-                    <button onClick={handleDepositar} className="btn btn-info shadow-sm text-light"><strong>Depositar</strong></button>
+                    <button
+                        onClick={handleDepositar}
+                        className="btn btn-info shadow-sm text-light"
+                    >
+                        <strong>Depositar</strong>
+                    </button>
                     <button onClick={handleRetirar} className="btn btn-outline-info shadow-sm ms-1"><strong>Retirar</strong></button>
                 </div>
 
             }
+
+            <Modal
+                depositado={depositado}
+                retirado={retirado}
+                setDeposito={setDeposito}
+                setRetiro={setRetiro} />
         </div>
     )
 }

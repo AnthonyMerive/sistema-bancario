@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.concurrent.CompletableFuture;
 
 @RestController
+@CrossOrigin(origins = "*",
+        methods = {RequestMethod.GET,
+                RequestMethod.PUT,
+                RequestMethod.POST,
+                RequestMethod.DELETE}
+)
 @RequestMapping(value = "/user-bank")
 public class BancoController {
 

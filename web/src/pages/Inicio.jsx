@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { crearCuenta } from '../actions/bancoAction';
 import { useForm } from '../hooks/useForm';
 
 export const Inicio = () => {
 
     const [crear, setCrear] = useState(false);
+    const producto = useSelector(store => store.banco.productoCreadoId);
+    const dispatch = useDispatch();
 
     const [values, handleInputChange, reset] = useForm({
         monto: '',
@@ -17,8 +21,9 @@ export const Inicio = () => {
 
     const handleCreacion = (e) => {
         e.preventDefault();
-        
+        dispatch(crearCuenta(monto));
         reset();
+        setCrear(false);
     }
 
     const handleCancelar = () => {
@@ -34,6 +39,11 @@ export const Inicio = () => {
             <div className='d-flex justify-content-center mt-3'>
                 <button onClick={handleCrear} className="btn btn-info shadow-sm text-light"><strong>CREAR CUENTA</strong></button>
             </div>
+
+            {
+                producto&&
+                <h6 className="d-flex justify-content-center text-danger mt-5"> Producto Creado: <strong className="ms-3 text-info">{producto}</strong> </h6>
+            }
 
             {
                 crear &&

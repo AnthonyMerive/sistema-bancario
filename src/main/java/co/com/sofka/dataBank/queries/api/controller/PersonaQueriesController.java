@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*",
+        methods = {RequestMethod.GET,
+                RequestMethod.PUT,
+                RequestMethod.POST,
+                RequestMethod.DELETE}
+)
 @RequestMapping(value = "/personas")
 public class PersonaQueriesController {
 
