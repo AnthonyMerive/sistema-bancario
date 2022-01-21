@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { crearCuenta } from '../actions/bancoAction';
+import { crearCuenta, success } from '../actions/bancoAction';
 import { useForm } from '../hooks/useForm';
 
 export const Inicio = () => {
@@ -10,12 +10,13 @@ export const Inicio = () => {
     const dispatch = useDispatch();
 
     const [values, handleInputChange, reset] = useForm({
-        monto: '',
+        monto: 0,
     })
 
     const { monto } = values;
 
     const handleCrear = () => {
+        dispatch(success({ productoCreadoId: null }))
         setCrear(true);
     }
 
