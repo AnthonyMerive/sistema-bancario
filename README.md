@@ -50,7 +50,7 @@ El frontend se centro en el consumo de esta API accediendo a sus end-point, se c
 Redux para el manejo de los estados globales y consumo de la API-Rest a traves de los actions, tambien se validaron rutas privadas ya
 que se creo un perfil de administracion donde puedes consultar todas las cuentas bancarias creadas.
 
-## Despliegues:
+## Imagenes:
 
 ### Despliegue Backend:
 
