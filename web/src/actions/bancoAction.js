@@ -82,12 +82,6 @@ export function retirar(id, monto) {
                 }
             )
             const data = await response.text();
-            Swal.fire({
-                icon: 'success',
-                title: {data},
-                showConfirmButton: false,
-                timer: 1500
-              })
               dispatch(success({ retirado: data }));
         } catch (error) {
             dispatch(failure())
