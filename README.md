@@ -49,9 +49,19 @@ que se creo un perfil de administracion donde puedes consultar todas las cuentas
 
 ### Despliegue Backend:
 
+**Swagger2 Documentacion:**
+
 ![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1642782652/Captura_de_pantalla_2022-01-21_112218_wzshrf.png)
 
+**H2 PersonaEntity:**
+
 ![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1642782652/Captura_de_pantalla_2022-01-21_112255_jzn1yu.png)
+
+**H2 Eventos de dominio:**
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1642782652/Captura_de_pantalla_2022-01-21_112323_bxrcvo.png)
+
+**Logs de comandos y queries:**
 
 ![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1642782652/Captura_de_pantalla_2022-01-21_112531_ikt08z.png)
 
