@@ -36,7 +36,8 @@ admin a traves de la autenticacion de firebase.
   **Despliegue local de Back y Front:**
   
   - el Frontend ya tiene su build por tal motivo para desplegar ambos bastara con entrar al proyecto y hacer run al proyecto spring-boot tal como
-    se especifica anteriormente, para entrar a nuestro deploy de frontend solo debemos dirigirnos a: http://localhost:8081/index.html
+    se especifica anteriormente, para entrar a nuestro deploy de frontend solo debemos abirir el puerto de desarrollo de spring-boot en nuestro 
+    navegador: http://localhost:8081/
 
 ## Perspectiva Back-end
 
