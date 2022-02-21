@@ -18,11 +18,11 @@ admin a traves de la autenticacion de firebase.
   
 ## Pasos para despliegue local:
 
-- **NOTA IMPORTANTE:** Se hicieron pruebas de despliegue con JDK 16 y JDK 17 y el AXON framework genera un error que no ha sido solucionado por los desarrolladores del plugin, por tal motivo se recomienda usar JDK 11.
+- **NOTA IMPORTANTE** Se hicieron pruebas de despliegue con JDK 16 y JDK 17 y el AXON framework genera un error que no ha sido solucionado por los desarrolladores del plugin, por tal motivo se recomienda usar JDK 11.
  
  **Backend:**
  
-  - Debes tener instalado JAVA y MAVEN con la configuracion de sus respectivas variables de entorno.
+  - Debes tener instalado JAVA (JDK 11) y MAVEN con la configuracion de sus respectivas variables de entorno.
   - Abre el proyecto y correlo, sugerido IntelliJi IDEA.
   - El proyecto se desplegara en el puerto 8081, bajo la direccion: http://localhost:8081/swagger-ui.html
   - Puedes acceder a la base de datos H2 a traves de la direccion: http://localhost:8081/h2-console
