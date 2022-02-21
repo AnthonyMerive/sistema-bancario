@@ -17,6 +17,8 @@ admin a traves de la autenticacion de firebase.
   son: || correo: "admin@admin.com" || contraseña: "admin1234" || sin comillas.
   
 ## Pasos para despliegue local:
+
+- **NOTA IMPORTANTE:** Se hicieron pruebas de despliegue con JDK 16 y JDK 17 y el AXON framework genera un error que no ha sido solucionado por los desarrolladores del plugin, por tal motivo se recomienda usar JDK 11.
  
  **Backend:**
  
